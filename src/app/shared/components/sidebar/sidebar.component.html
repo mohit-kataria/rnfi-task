@@ -1,0 +1,108 @@
+<section class="sidebar-section">
+	<div
+		class="logo-container"
+		fxLayout="row"
+		fxLayoutAlign="space-between center"
+	>
+		<a routerLink="" class="logo">
+			<img src="" alt="" />
+		</a>
+		<button
+			mat-icon-button
+			class="close-sidebar"
+			aria-label="close sidebar"
+			(click)="layoutService.toggleSidenav()"
+		>
+			<mat-icon>close</mat-icon>
+		</button>
+	</div>
+	<div class="user-wrapper" fxLayout="column">
+		<div class="user-image-wrapper">
+			<img class="user-image" src="/assets/images/user.jpg" alt="" />
+		</div>
+		<div
+			class="user-detail-container"
+			fxLayout="column"
+			fxLayoutAlign="start start"
+			*ngIf="(layoutService.loginVisible() | async) === false"
+		>
+			<span class="user-name">{{
+				currentUser ? currentUser.result.name : ''
+			}}</span>
+			<!-- <span class="user-email">{{ currentUser ? currentUser.email : '' }}</span> -->
+		</div>
+	</div>
+	<ng-container *ngIf="(layoutService.loginVisible() | async) === true">
+		<!-- <div class="not-logged-in-menu">Welcome</div>
+		<div class="not-logged-in-menu-line">
+			Please login to access account
+		</div> -->
+		<div class="login-register">
+			<button
+				mat-stroked-button
+				color="primary"
+				[routerLink]="'auth/login'"
+				(click)="layoutService.toggleSidenav()"
+				class="login-register-button"
+			>
+				Login / Register
+			</button>
+		</div>
+	</ng-container>
+	<div *ngIf="(layoutService.loginVisible() | async) === false">
+		<div class="main-links-wrapper">
+			<div class="main-link-container">
+				<a
+					routerLink="user/profile"
+					(click)="layoutService.toggleSidenav()"
+					class="main-link"
+					>My Profile</a
+				>
+			</div>
+		</div>
+
+		<div class="divider"></div>
+	</div>
+
+	<div class="sublinks-wrapper">
+		<div class="sublink-container">
+			<a
+				routerLink="/contact-us"
+				(click)="layoutService.toggleSidenav()"
+				class="sublink"
+				>Contact Us</a
+			>
+		</div>
+		<div class="sublink-container">
+			<a
+				routerLink="about-us"
+				(click)="layoutService.toggleSidenav()"
+				class="sublink"
+				>About</a
+			>
+		</div>
+	</div>
+
+	<div class="divider"></div>
+
+	<div
+		class="logout-container"
+		*ngIf="(layoutService.loginVisible() | async) === false"
+	>
+		<button class="logout-button" (click)="logout()">Logout</button>
+	</div>
+
+	<div class="footer-container">
+		<div
+			class="privacy"
+			routerLink="privacy-policy"
+			(click)="layoutService.toggleSidenav()"
+		>
+			Privacy Policy
+		</div>
+		<div class="dot-divider"></div>
+		<div class="tnc" (click)="layoutService.toggleSidenav()">
+			Terms Of Service
+		</div>
+	</div>
+</section>

@@ -1,0 +1,42 @@
+<ng-container *ngIf="layoutService.isHeaderVisible() | async">
+	<mat-toolbar
+		[color]="(layoutService.isHeaderSolid() | async) ? 'primary' : 'accent'"
+		style="
+			height: 80px;
+			padding-top: 1.5vh;
+			box-shadow: 0px 1px 10px #0000001f;
+			position: sticky;
+			top: 0;
+			z-index: 100;
+		"
+	>
+		<div class="navbar-mobile-wrapper" fxLayout="row">
+			<div
+				class="navbar-logo-wrapper"
+				fxLayout="row"
+				fxLayoutAlign="space-between center"
+				style="width: 100%"
+			>
+				<div></div>
+				<a routerLink="" class="header-mobile-logo">
+					<img
+						[src]="
+							(layoutService.isHeaderSolid() | async)
+								? ''
+								: 'assets/images/relipay.jpg'
+						"
+						alt=""
+						width="180px"
+					/>
+				</a>
+				<div fxLayout="row" fxLayoutAlign="none center">
+					<div>
+						<button class="sidebar-toggler-mobile" (click)="logout()">
+							Logout
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</mat-toolbar>
+</ng-container>

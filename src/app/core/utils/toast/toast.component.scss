@@ -1,0 +1,39 @@
+.toast {
+	position: relative;
+	margin-bottom: 20px;
+	color: #fefefe;
+	padding: 0vh 2vw;
+	width: 150px;
+	min-height: 50px;
+	font-size: 14px;
+	font-family: 'Open Sans', sans-serif;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #dddddd #d6d6d6 #cfcfcf;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.11);
+
+	&--success {
+		background: #07bc0c;
+	}
+
+	&--info {
+		background: #3498db;
+	}
+
+	&--warning {
+		background: #f1c40f;
+	}
+
+	&--error {
+		background: #e74c3c;
+	}
+
+	.data {
+		line-height: 20px;
+		padding: 1vh 1vw;
+	}
+
+	.toast-close-wrapper {
+		cursor: pointer;
+	}
+}

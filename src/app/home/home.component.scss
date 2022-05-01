@@ -1,0 +1,28 @@
+.form {
+	padding: 30px 60px;
+	&-row {
+		margin: 10px;
+		&-key {
+			padding: 20px 2px !important;
+			color: red;
+		}
+	}
+
+	.form-update-btn {
+		.update-btn {
+			padding: 1px 25px;
+			color: #ffffff;
+			background-color: orange;
+			border: 2px solid rgba(150, 98, 2, 0.671);
+		}
+	}
+
+	button:disabled,
+	button[disabled] {
+		background-color: rgb(245, 171, 33);
+	}
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+	color: green;
+}

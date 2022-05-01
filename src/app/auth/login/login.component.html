@@ -1,0 +1,57 @@
+<ng-container>
+	<div fxLayout="column" fxLayoutAlign="center center" class="login-mobile">
+		<form
+			[formGroup]="loginForm"
+			fxLayout="column"
+			fxLayoutAlign="none center"
+			(ngSubmit)="login()"
+		>
+			<mat-form-field appearance="outline">
+				<mat-label>Username</mat-label>
+				<input
+					matInput
+					type="text"
+					formControlName="username"
+					placeholder="username"
+					required
+				/>
+				<mat-error
+					*ngIf="submitted && form.get('username').hasError('required')"
+					>mobile is required</mat-error
+				>
+			</mat-form-field>
+			<mat-form-field appearance="outline">
+				<mat-label>Password</mat-label>
+				<input
+					matInput
+					type="password"
+					placeholder="Password"
+					formControlName="password"
+				/>
+				<mat-error
+					*ngIf="submitted && form.get('password').hasError('required')"
+					>Password is required</mat-error
+				>
+			</mat-form-field>
+
+			<div
+				class="form-submit-btn-mobile"
+				fxLayout="row"
+				fxLayoutAlign="center center"
+			>
+				<button mat-stroked-button class="submit-btn">
+					<span *ngIf="!loading">Login</span>
+					<span *ngIf="loading" fxLayout="row" fxLayoutAlign="center center">
+						<mat-progress-spinner
+							class="example-margin"
+							color="accent"
+							mode="indeterminate"
+							diameter="40"
+						>
+						</mat-progress-spinner>
+					</span>
+				</button>
+			</div>
+		</form>
+	</div>
+</ng-container>

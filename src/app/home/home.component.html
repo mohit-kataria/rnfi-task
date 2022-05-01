@@ -1,0 +1,40 @@
+<form
+	class="form"
+	[formGroup]="dynamicForm"
+	*ngIf="outerKey.length"
+	(ngSubmit)="update()"
+>
+	<div *ngFor="let j of outerKey">
+		<h2>{{ j | uppercase }}</h2>
+
+		<div
+			fxLayout="row wrap"
+			fxLayoutAlign="start"
+			*ngFor="let data of dynamicForm.get(j)['controls']"
+			[formGroup]="data"
+		>
+			<div
+				fxLayout="column"
+				fxLayoutAlign="start"
+				*ngFor="let a of data.controls | keyvalue: originalOrder"
+				class="form-row"
+			>
+				<mat-form-field appearance="outline">
+					<mat-label class="form-row-key">{{ a.key }}</mat-label>
+					<input matInput [type]="getType(a.value)" [formControlName]="a.key" [placeholder]="a.key" />
+				</mat-form-field>
+			</div>
+			<br />
+		</div>
+		<br />
+	</div>
+	<div class="form-update-btn" fxLayout="row" fxLayoutAlign="center center">
+		<button
+			mat-stroked-button
+			class="update-btn"
+			[disabled]="dynamicForm.pristine"
+		>
+			UPDATE
+		</button>
+	</div>
+</form>

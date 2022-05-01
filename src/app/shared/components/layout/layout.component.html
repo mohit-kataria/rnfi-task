@@ -1,0 +1,22 @@
+<mat-drawer-container
+	class="layout-container"
+	[hasBackdrop]="true"
+	(backdropClick)="layoutService.toggleSidenav()"
+>
+	<mat-drawer
+		[mode]="'over'"
+		[opened]="layoutService.isSidenavOpen() | async"
+		style="position: fixed"
+	>
+		<!-- <app-sidebar [currentUser]="authService.currentUserValue"></app-sidebar> -->
+	</mat-drawer>
+
+	<mat-drawer-content style="height: 100vh; position: relative">
+		<app-header [currentUser]="authService.currentUserValue"></app-header>
+		<!-- <app-sub-header></app-sub-header> -->
+		<div id="header">
+			<router-outlet></router-outlet>
+		</div>
+		<!-- <app-footer style="position: absolute; bottom: 0px"></app-footer> -->
+	</mat-drawer-content>
+</mat-drawer-container>

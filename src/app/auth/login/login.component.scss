@@ -1,0 +1,37 @@
+.login-mobile {
+	width: 100vw;
+	height: 100vh;
+	form {
+		width: 500px;
+		border: 1px solid black;
+		padding: 30px 5px;
+		border-radius: 5px;
+	}
+	.form-submit-btn-mobile {
+		width: 100%;
+		padding: 2vh 0vw;
+		.submit-btn {
+			width: 30%;
+			border-radius: 1vw;
+			font-family: 'Open Sans', sans-serif;
+			font-size: 2vw;
+			font-weight: normal;
+			outline: none;
+			background-color: #000000;
+			color: #ffffff;
+		}
+		.submit-btn:hover {
+			color: #000000;
+			background-color: #ffffff;
+		}
+	}
+
+	::ng-deep .mat-form-field-flex > .mat-form-field-infix {
+		padding: 2.3vh 0px !important;
+		width: 400px !important;
+	}
+
+	.btn-wrapper {
+		margin-top: 5px;
+	}
+}
